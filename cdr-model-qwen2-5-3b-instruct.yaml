@@ -1,0 +1,20 @@
+apiVersion: kubeai.org/v1
+kind: Model
+metadata:
+  name: qwen2-5-3b-instruct
+  namespace: kubeai
+spec:
+  features: ["TextGeneration"]
+  engine: VLLM
+  url: "hf:///Qwen/Qwen2.5-3B-Instruct"
+
+  # 1 GPU на pod, попадание на DOKS GPU nodes обеспечит profile
+  resourceProfile: "doks-nvidia:1"
+
+  # ключ к вашему сценарию
+  minReplicas: 0
+  maxReplicas: 4
+
+  # “авто-DP”: больше реплик при росте параллельных запросов
+  targetRequests: 2
+  scaleDownDelaySeconds: 120

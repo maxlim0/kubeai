@@ -1,0 +1,37 @@
+resource "kubernetes_manifest" "root_app" {
+    depends_on = [ helm_release.agrocd ]
+    manifest = {
+        apiVersion = "argoproj.io/v1alpha1"
+        kind = "Application"
+        matadata = {
+            name = "root-app"
+            name
+        }
+        spec = {
+            project = "default"
+
+            source = {
+                repoURL = var.gitops_repo_url
+                targetRevision = var.gitops_target_revision
+                path = var.gitops_root_path
+                directory = {
+                    recurse = true
+                }
+            }
+        }
+
+        destination = {
+            server = "https://kubernetes.default.svc"
+            namespace = "agrocd"
+        }
+        syncPolicy = {
+            automated = {
+                prune = true
+                selfHeal = true
+            }
+            syncOptions = [
+                "CreateNamespace=true"
+            ]
+        }
+    }
+}
