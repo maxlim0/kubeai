@@ -12,5 +12,5 @@ variable "gitops_target_revision" {
 variable "gitops_root_path" {
     description = "path in repo to platform apps"
     type        = string
-    default     = "apps/platform"
+    default     = "apps"
 }
