@@ -8,10 +8,11 @@ output "cluster_name" {
   value       = digitalocean_kubernetes_cluster.this.name
 }
 
-output "endpoint" {
+output "kubernetes_endpoint" {
   description = "API endpoint Kubernetes."
   value       = digitalocean_kubernetes_cluster.this.endpoint
 }
+
 
 output "kubeconfig_raw" {
   description = "Raw kubeconfig (YAML). Sensitive."
@@ -19,7 +20,7 @@ output "kubeconfig_raw" {
   sensitive   = true
 }
 
-output "kubeconfig_token" {
+output "kubernetes_token" {
   description = "Token для доступа. Sensitive."
   value       = digitalocean_kubernetes_cluster.this.kube_config[0].token
   sensitive   = true

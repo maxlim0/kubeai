@@ -1,11 +1,10 @@
 resource "kubernetes_manifest" "root_app" {
-    depends_on = [ helm_release.agrocd ]
     manifest = {
         apiVersion = "argoproj.io/v1alpha1"
         kind = "Application"
-        matadata = {
-            name = "root-app"
-            name
+        metadata = {
+            name      = "root-app"
+            namespace = "argocd"
         }
         spec = {
             project = "default"
@@ -18,20 +17,19 @@ resource "kubernetes_manifest" "root_app" {
                     recurse = true
                 }
             }
-        }
-
-        destination = {
-            server = "https://kubernetes.default.svc"
-            namespace = "agrocd"
-        }
-        syncPolicy = {
-            automated = {
-                prune = true
-                selfHeal = true
+            destination = {
+                server = "https://kubernetes.default.svc"
+                namespace = "argocd"
             }
-            syncOptions = [
-                "CreateNamespace=true"
-            ]
+            syncPolicy = {
+                automated = {
+                    prune = true
+                    selfHeal = true
+                }
+                syncOptions = [
+                    "CreateNamespace=true"
+                ]
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 variable "gitops_repo_url" {
-    type = string
+    type    = string
+    default = "https://github.com/maxlim0/kubeai.git"
 }
 
 variable "gitops_target_revision" {

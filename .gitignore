@@ -1,4 +1,3 @@
-terraform/.generated/
 **/.terraform/
 **/*.tfstate
 **/*.tfstate.*
