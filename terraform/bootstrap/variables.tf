@@ -6,7 +6,7 @@ variable "gitops_repo_url" {
 variable "gitops_target_revision" {
     description = "branch/tag/sha"
     type        = string
-    default     = "main" 
+    default     = "master" 
 }
 
 variable "gitops_root_path" {
