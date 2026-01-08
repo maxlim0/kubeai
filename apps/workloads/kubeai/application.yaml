@@ -1,0 +1,48 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubeai
+  namespace: argocd
+spec:
+  project: default
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kubeai
+
+  source:
+    repoURL: https://www.kubeai.org
+    chart: kubeai
+    targetRevision: "*"
+    helm:
+      releaseName: kubeai
+      values: |-
+        resourceProfiles:
+          doks-nvidia:
+            nodeSelector:
+              doks.digitalocean.com/gpu-brand: "nvidia"
+            tolerations:
+              - key: "nvidia.com/gpu"
+                operator: "Exists"
+                effect: "NoSchedule"
+            resources:
+              requests:
+                nvidia.com/gpu: "1"
+                cpu: "1"
+                memory: "1Gi"
+              limits:
+                nvidia.com/gpu: "1"
+                cpu: "2"
+                memory: "4Gi"
+
+        # Если хотите выключить веб-UI (Open WebUI), раскомментируйте:
+        # open-webui:
+        #   enabled: false
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true
