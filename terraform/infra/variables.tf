@@ -55,7 +55,7 @@ variable "auto_upgrade" {
 variable "surge_upgrade" {
   description = "Surge upgrades (если поддерживается провайдером/ресурсом)."
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "tags" {
