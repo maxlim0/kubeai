@@ -13,3 +13,5 @@ spec:
   args:
     - --max-model-len=8192
     - --gpu-memory-utilization=0.9
+  minReplicas: 1
+  maxReplicas: 1
