@@ -1,0 +1,15 @@
+apiVersion: kubeai.org/v1
+kind: Model
+metadata:
+  name: llama-3-1-8b-instruct
+  namespace: kubeai
+spec:
+  features:
+    - TextGeneration
+  owner: meta-llama  
+  url: "hf://meta-llama/Llama-3.1-8B-Instruct"
+  engine: VLLM
+  resourceProfile: doks-nvidia
+  args:
+    - --max-model-len=8192
+    - --gpu-memory-utilization=0.9
