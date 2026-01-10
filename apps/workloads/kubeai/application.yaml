@@ -19,6 +19,11 @@ spec:
     helm:
       releaseName: kubeai
       values: |-
+        metrics:
+          prometheusOperator:
+            vLLMPodMonitor:
+              enabled: true
+
         resourceProfiles:
           doks-nvidia:
             nodeSelector:
@@ -48,8 +53,3 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ApplyOutOfSyncOnly=true
-
-  metrics:
-    prometheusOperatior:
-      vLLMPodMonitor:
-        enabled: true
