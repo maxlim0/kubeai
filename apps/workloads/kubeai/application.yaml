@@ -3,10 +3,10 @@ kind: Application
 metadata:
   name: kubeai
   namespace: argocd
-spec:
-  project: default
   annotations:
     argocd.argoproj.io/sync-wave: "20"
+spec:
+  project: default
 
   destination:
     server: https://kubernetes.default.svc
