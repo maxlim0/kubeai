@@ -28,7 +28,7 @@ module "k8s" {
 
     tags = local.common_tags
 
-    gpu_pool_enabled = true
+    gpu_pool_enabled = false
     gpu_node_pool_name = "pool-gpu-rtx4000"
     gpu_node_size = "gpu-4000adax1-20gb"
     gpu_node_count = 0
