@@ -48,3 +48,8 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ApplyOutOfSyncOnly=true
+
+  metrics:
+    prometheusOperatior:
+      vLLMPodMonitor:
+        enabled: true
