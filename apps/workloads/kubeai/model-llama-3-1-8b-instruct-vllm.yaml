@@ -5,7 +5,7 @@ metadata:
   namespace: kubeai
   annotations:
     argocd.argoproj.io/sync-wave: "30"
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/depends-on: kubeai
 spec:
   features:
     - TextGeneration
