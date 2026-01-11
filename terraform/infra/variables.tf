@@ -65,3 +65,7 @@ variable "tags" {
         owner = "max"}
 }
 
+variable "gpu_pool_enabled" {
+    type    = bool
+    default = false
+}
