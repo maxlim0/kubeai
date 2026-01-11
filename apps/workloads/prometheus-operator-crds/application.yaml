@@ -17,11 +17,11 @@ spec:
     automated:
       prune: true
       selfHeal: true
-    syncPolicy:
-      automated:     # если хотите авто-sync
-        prune: true
-        selfHeal: true
-      syncOptions:
-        - CreateNamespace=true
-        - Replace=true
-        - ServerSideApply=true
+  syncPolicy:
+    automated:     # если хотите авто-sync
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=true
+      - ServerSideApply=true
