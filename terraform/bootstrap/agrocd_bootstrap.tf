@@ -27,7 +27,8 @@ resource "kubernetes_manifest" "root_app" {
                     selfHeal = true
                 }
                 syncOptions = [
-                    "CreateNamespace=true"
+                    "CreateNamespace=true",
+                    "SkipDryRunOnMissingResource=true"
                 ]
             }
         }
