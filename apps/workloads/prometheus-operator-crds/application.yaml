@@ -15,7 +15,7 @@ spec:
     chart: prometheus-operator-crds
     targetRevision: 26.0.0
   syncPolicy:
-    automated:     # если хотите авто-sync
+    automated:
       prune: true
       selfHeal: true
     syncOptions:
