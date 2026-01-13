@@ -29,8 +29,8 @@ module "k8s" {
     tags = local.common_tags
 
     gpu_pool_enabled = var.gpu_pool_enabled
-    gpu_node_pool_name = "pool-gpu-rtx4000"
-    gpu_node_size = "gpu-4000adax1-20gb"
+    gpu_node_pool_name = var.gpu_node_pool_name
+    gpu_node_size = var.gpu_node_size
     gpu_node_count = 0
 
     gpu_node_labels = {
@@ -39,8 +39,8 @@ module "k8s" {
 
     gpu_node_taints = [
         {
-         key = "workload",
-         value = "gpu",
+         key = "nvidia.com/gpu",
+         value = "true",
          effect = "NoSchedule"
         }
     ]

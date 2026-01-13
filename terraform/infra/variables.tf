@@ -69,3 +69,14 @@ variable "gpu_pool_enabled" {
     type    = bool
     default = false
 }
+
+variable "gpu_node_size" {
+    type = string
+    default = "gpu-4000adax1-20gb"
+}
+
+variable "gpu_node_pool_name" {
+    type = string 
+    default = "pool-gpu-rtx4000"
+
+}
