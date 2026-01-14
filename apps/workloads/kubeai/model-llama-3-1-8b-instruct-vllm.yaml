@@ -1,15 +1,15 @@
 apiVersion: kubeai.org/v1
 kind: Model
 metadata:
-  name: llama-3-1-8b-instruct
+  name: google/gemma-7b
   namespace: kubeai
   annotations:
     argocd.argoproj.io/sync-wave: "30"
 spec:
   features:
     - TextGeneration
-  owner: meta-llama  
-  url: "hf://meta-llama/Llama-3.1-8B-Instruct"
+  owner: google 
+  url: "hf:///google/gemma-7b"
   engine: VLLM
   resourceProfile: doks-nvidia:1
   args:
