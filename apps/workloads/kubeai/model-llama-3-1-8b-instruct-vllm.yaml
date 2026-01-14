@@ -9,7 +9,7 @@ spec:
   features:
     - TextGeneration
   owner: google 
-  url: "hf:///google/gemma-7b"
+  url: "hf://google/gemma-7b"
   engine: VLLM
   resourceProfile: doks-nvidia:1
   args:
