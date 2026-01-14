@@ -24,6 +24,12 @@ spec:
             serviceMonitorSelectorNilUsesHelmValues: false
             ruleSelectorNilUsesHelmValues: false
             probeSelectorNilUsesHelmValues: false
+        grafana:
+          sidecar:
+            datasources:
+              enabled: true
+              # Force Grafana to reload datasources after sidecar writes the file.
+              reloadURL: "http://localhost:3000/api/admin/provisioning/datasources/reload"
   syncPolicy:
     retry:
       limit: 3
