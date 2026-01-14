@@ -15,3 +15,6 @@ kubectl get secret kube-prometheus-stack-grafana \
 
 # get access to grafana UI
 k port-forward -n monitoring svc/kube-prometheus-stack-grafana 8080:80
+
+
+                                                                                                                    

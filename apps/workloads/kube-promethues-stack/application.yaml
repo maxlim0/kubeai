@@ -17,7 +17,7 @@ spec:
     helm:
       values: |
         crds:
-          enabled: false
+          enabled: true
         prometheus:
           prometheusSpec:
             podMonitorSelectorNilUsesHelmValues: false
@@ -37,5 +37,5 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - SkipDryRunOnMissingResource=true
-      # Важно для CRD, зависит от вашей практики/политик:
-      # - ServerSideApply=true
+      - ServerSideApply=true
+      - Replace=true
