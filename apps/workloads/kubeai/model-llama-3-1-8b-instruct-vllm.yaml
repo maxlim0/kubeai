@@ -1,7 +1,7 @@
 apiVersion: kubeai.org/v1
 kind: Model
 metadata:
-  name: google/gemma-7b
+  name: google-gemma-7b
   namespace: kubeai
   annotations:
     argocd.argoproj.io/sync-wave: "30"
