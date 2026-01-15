@@ -13,7 +13,7 @@ spec:
   engine: VLLM
   resourceProfile: doks-nvidia:1
   env:
-    - name: HUGGINGFACE_HUB_TOKEN
+    - name: HF_TOKEN
       valueFrom:
         secretKeyRef:
           name: hf-token
