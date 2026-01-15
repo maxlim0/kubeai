@@ -12,6 +12,12 @@ spec:
   url: "hf://google/gemma-7b"
   engine: VLLM
   resourceProfile: doks-nvidia:1
+  env:
+    - name: HUGGINGFACE_HUB_TOKEN
+      valueFrom:
+        secretKeyRef:
+          name: hf-token
+          key: token
   args:
     - --max-model-len=8192
     - --gpu-memory-utilization=0.9
