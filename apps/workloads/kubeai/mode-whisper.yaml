@@ -7,6 +7,6 @@ spec:
   url: hf://deepdml/faster-whisper-large-v3-turbo-ct2
   engine: FasterWhisper
   resourceProfile: doks-nvidia:1
-  replicas: 0
+  replicas: 1
   minReplicas: 0
-  maxReplicas: 0
+  maxReplicas: 1

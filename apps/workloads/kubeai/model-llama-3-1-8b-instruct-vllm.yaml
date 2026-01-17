@@ -17,3 +17,4 @@ spec:
     - --gpu-memory-utilization=0.75
   minReplicas: 0
   maxReplicas: 0
+  replicas: 0
