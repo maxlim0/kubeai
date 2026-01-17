@@ -2,6 +2,9 @@ apiVersion: kubeai.org/v1
 kind: Model
 metadata:
   name: whisper-large-v3-turbo-gpu
+  namespace: kubeai
+  annotations:
+  argocd.argoproj.io/sync-wave: "30"
 spec:
   features: [SpeechToText]
   url: hf://deepdml/faster-whisper-large-v3-turbo-ct2
