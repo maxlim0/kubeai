@@ -17,29 +17,19 @@ spec:
     helm:
       values: |
         crds:
-          enabled: false
+          enabled: true
         prometheus:
           prometheusSpec:
             podMonitorSelectorNilUsesHelmValues: false
             serviceMonitorSelectorNilUsesHelmValues: false
             ruleSelectorNilUsesHelmValues: false
             probeSelectorNilUsesHelmValues: false
-        grafana:
-          sidecar:
-            datasources:
-              enabled: true
-              # Force Grafana to reload datasources after sidecar writes the file.
-              reloadURL: "http://localhost:3000/api/admin/provisioning/datasources/reload"
   syncPolicy:
-    retry:
-      limit: 3
-      backoff:
-        duration: 20s
-        factor: 2
-        maxDuration: 2m
     automated:
       prune: true
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
       - SkipDryRunOnMissingResource=true
+      - Replace=true
+      - ServerSideApply=true
