@@ -1,7 +1,7 @@
 apiVersion: kubeai.org/v1
 kind: Model
 metadata:
-  name: google-gemma-7b
+  name: qwen
   namespace: kubeai
   annotations:
     argocd.argoproj.io/sync-wave: "30"
@@ -9,15 +9,9 @@ spec:
   features:
     - TextGeneration
   owner: google 
-  url: "hf://google/gemma-7b"
+  url: "hf://google/gemma-3-4b-it"
   engine: VLLM
   resourceProfile: doks-nvidia:1
-  env:
-    - name: HF_TOKEN
-      valueFrom:
-        secretKeyRef:
-          name: hf-token
-          key: token
   args:
     - --max-model-len=4096
     - --gpu-memory-utilization=0.75
